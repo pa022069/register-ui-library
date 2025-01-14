@@ -10,7 +10,7 @@ stages:
   - deploy_to_gcs
 #--------------------------------------------------
 variables:
-  NODE_VERSION: '18'
+  NODE_VERSION: '20'
   PROJECT_NAME: ''
 tag:
   extends:
