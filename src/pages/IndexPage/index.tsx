@@ -3,10 +3,7 @@ import { useSelector } from 'react-redux';
 import Loading from '@components/LoadingBox';
 import { RenderComponent } from '@core/render';
 import { selectState } from '@helpers/redux/slices/templateSlice';
-import { registry } from '@core/register';
-import SelectConfig from '@core/components/Select';
-
-registry.register(SelectConfig);
+import { registry } from '@core';
 
 export default function IndexPage() {
   const { isLoaded } = useSelector(selectState);
