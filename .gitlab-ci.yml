@@ -1,0 +1,30 @@
+include:
+  - project: 'runner-configs/gitlab-shared-steps'
+    file: '/web/tag.gitlab-ci.yml'
+  - project: 'runner-configs/gitlab-shared-steps'
+    file: '/web/gcs.gitlab-ci.yml'
+stages:
+  - tag
+  - generate_env
+  - build
+  - deploy_to_gcs
+#--------------------------------------------------
+variables:
+  NODE_VERSION: '18'
+  PROJECT_NAME: ''
+tag:
+  extends:
+    - .default_tag_job
+    - .default_tag_rules
+generate_env:
+  extends:
+    - .default_generate_env_job
+    - .default_deploy_rules
+build:
+  extends:
+    - .default_build_job
+    - .default_deploy_rules
+deploy_to_gcs:
+  extends:
+    - .default_deploy_to_gcs_job
+    - .default_deploy_rules

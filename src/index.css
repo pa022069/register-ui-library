@@ -1,0 +1,6 @@
+@import '@library/jui/dist/styles/globals.css';
+@import '@library/jui/dist/styles/icon.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

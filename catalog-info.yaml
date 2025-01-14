@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: spa-vite
+  name: spa-vite-project
+  namespace: jkos
+  description: Create a SPA with Vite
+  details:
+    criticality: 'B'
+    SLO: 80
+    confidentiality: 'Internal'
+    monitoring: false
+    stateless: false
+    promethues: false
+    vault: true
+spec:
+  type: website
+  owner: group:default/team-frontend
+  lifecycle: production
+  system: system:jkos/spa-vite
+  dependsOn:
+    - resource:jkopay/gitlab
+    - resource:jkopay/jenkins
+    - component:jkopay/healthLog
+    - component:jk/api
+    - component:library/jkbridge
+    - component:library/jui

@@ -1,0 +1,11 @@
+{
+  "formPage-title": "聯繫客服",
+  "formPage-description": "我們非常重視您遇到的問題，為快速確認問題並提供協助，請詳細填寫問題表單，我們將儘速給予回覆！",
+  "form-title": "請說明您所遇到的問題",
+  "form-notice": "*為必填項目",
+  "indexPage-title": "查詢結果",
+  "indexPage-description": "為提供您迅速確實的服務，請將填寫完整，並詳細描述您所遇到的問題",
+  "index-title": "您的案件資訊",
+  "index-notice": "-",
+  "case-limit-alert": "您的未結案問題超過10件，還需請您耐心等候客服回覆再發起新問題哦！"
+}
