@@ -1,13 +1,27 @@
-import { registry } from '@core/register';
 import { options } from './options';
 import { Select } from './component';
 
 const SelectConfig = {
   name: 'select',
   component: Select,
-  options,
+  options: {
+    ...options,
+    schema: {
+      type: 'object',
+      properties: {
+        size: {
+          type: 'string',
+          enum: ['small', 'medium', 'large'],
+          default: 'medium',
+        },
+        variant: {
+          type: 'string',
+          enum: ['default', 'secondary', 'danger'],
+          default: 'default',
+        },
+      },
+    },
+  },
 };
-
-registry.register(SelectConfig);
 
 export default SelectConfig;
