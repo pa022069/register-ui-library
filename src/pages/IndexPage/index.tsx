@@ -7,26 +7,38 @@ import { registry } from '@core';
 
 export default function IndexPage() {
   const { isLoaded } = useSelector(selectState);
-  const componentConfig = registry.getComponent('select');
-  const schema = componentConfig.options?.schema;
+  const selectConfig = registry.getComponent('select');
+  const buttonConfig = registry.getComponent('button');
+  const selectSchema = selectConfig.options?.schema;
+  const buttonSchema = buttonConfig.options?.schema;
 
-  const [props, setProps] = useState(
+  const [selectProps, setSelectProps] = useState(
     Object.fromEntries(
-      Object.entries(schema.properties).map(([key, value]: any) => [key, value.default]),
+      Object.entries(selectSchema.properties).map(([key, value]: any) => [key, value.default]),
     ),
   );
 
-  const handleChange = (key: string, value: any) => {
-    setProps((prev: any) => ({ ...prev, [key]: value }));
+  const [buttonProps, setButtonProps] = useState(
+    Object.fromEntries(
+      Object.entries(buttonSchema.properties).map(([key, value]: any) => [key, value.default]),
+    ),
+  );
+
+  const handleSelectChange = (key: string, value: any) => {
+    setSelectProps((prev: any) => ({ ...prev, [key]: value }));
+  };
+
+  const handleButtonChange = (key: string, value: any) => {
+    setButtonProps((prev: any) => ({ ...prev, [key]: value }));
   };
 
   return (
     <div className="w-sm mx-auto flex h-screen flex-col items-center justify-center gap-4">
       {/* {!isLoaded && <Loading />} */}
-      {Object.entries(schema.properties).map(([key, value]: any) => (
+      {Object.entries(selectSchema.properties).map(([key, value]: any) => (
         <div key={key}>
           <label>{key}：</label>
-          <select value={props[key]} onChange={e => handleChange(key, e.target.value)}>
+          <select value={selectProps[key]} onChange={e => handleSelectChange(key, e.target.value)}>
             {value.enum.map((option: any) => (
               <option key={option} value={option}>
                 {option}
@@ -40,12 +52,29 @@ export default function IndexPage() {
         config={{
           variant: 'secondary',
           size: 'large',
-          ...props,
-          // options: [
-          //   { value: '1', label: 'Option 1' },
-          //   { value: '2', label: 'Option 2' },
-          //   { value: '3', label: 'Option 3' },
-          // ],
+          ...selectProps,
+        }}
+      />
+
+      {Object.entries(buttonSchema.properties).map(([key, value]: any) => (
+        <div key={key}>
+          <label>{key}：</label>
+          <select value={selectProps[key]} onChange={e => handleButtonChange(key, e.target.value)}>
+            {value.enum.map((option: any) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+      ))}
+      <RenderComponent
+        name="button"
+        config={{
+          variant: 'danger',
+          size: 'small',
+          children: <>Button</>,
+          ...buttonProps,
         }}
       />
       {/* <div className="flex">

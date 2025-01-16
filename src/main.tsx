@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import routes from './routes';
 import { store } from '@helpers/redux/store';
 
-import '@core/components/Select';
+import '@components/Select';
 
 import '@/index.css';
 if (import.meta.env.VITE_ENV === 'sit') {

@@ -37,8 +37,23 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      outDir: './build',
-      target: ['safari13'],
+      // outDir: './build',
+      // target: ['safari13'],
+      rollupOptions: {
+        input: {
+          main: 'src/components/index.ts',
+        },
+        output: {
+          dir: 'dist',
+          entryFileNames: '[name].js',
+        },
+      },
+      lib: {
+        entry: 'src/components/index.ts',
+        formats: ['es', 'cjs'],
+        name: 'registry-components',
+      },
+      minify: 'esbuild',
     },
     server: {
       watch: {
