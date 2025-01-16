@@ -1,7 +1,7 @@
 {
   "name": "vite-project",
   "private": true,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,11 +12,8 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "clean": "rm -rf build",
-    "version": "npx standard-version --release-as patch",
     "format": "prettier --write \"./**\"",
-    "bundle-visualizer": "npx vite-bundle-visualizer",
-    "sitVersion": "npx standard-version --release-as patch && git push --follow-tags origin sit && echo \" version $npm_package_version was successfully released!\"",
-    "prodVersion": "npx standard-version --release-as minor && git push --follow-tags origin master && echo \" version $npm_package_version was successfully released!\""
+    "bundle-visualizer": "npx vite-bundle-visualizer"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
