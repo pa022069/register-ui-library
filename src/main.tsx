@@ -7,8 +7,6 @@ import { Provider } from 'react-redux';
 import routes from './routes';
 import { store } from '@helpers/redux/store';
 
-import '@components/Select';
-
 import '@/index.css';
 if (import.meta.env.VITE_ENV === 'sit') {
   new VConsole();

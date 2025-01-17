@@ -1,9 +1,9 @@
 import { options } from './options';
-import { Button } from './component';
+import { Button as ButtonComponent } from './component';
 
-const ButtonConfig = {
+const Button = {
   name: 'button',
-  component: Button,
+  component: ButtonComponent,
   options: {
     ...options,
     schema: {
@@ -24,4 +24,4 @@ const ButtonConfig = {
   },
 };
 
-export default ButtonConfig;
+export default Button;

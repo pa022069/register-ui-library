@@ -1,9 +1,9 @@
 import { options } from './options';
-import { Select } from './component';
+import { Select as SelectConponent } from './component';
 
-const SelectConfig = {
+const Select = {
   name: 'select',
-  component: Select,
+  component: SelectConponent,
   options: {
     ...options,
     schema: {
@@ -24,4 +24,4 @@ const SelectConfig = {
   },
 };
 
-export default SelectConfig;
+export default Select;

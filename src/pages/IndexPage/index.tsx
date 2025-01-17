@@ -1,16 +1,19 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import Loading from '@components/LoadingBox';
-import { RenderComponent } from '@core/render';
-import { selectState } from '@helpers/redux/slices/templateSlice';
-import { registry } from '@core';
+// import { useSelector } from 'react-redux';
+// import Loading from '@components/LoadingBox';
+import { RenderComponent } from '../../core/render';
+// import { selectState } from '@helpers/redux/slices/templateSlice';
+import { registry } from '../../core';
 
 export default function IndexPage() {
-  const { isLoaded } = useSelector(selectState);
+  // const { isLoaded } = useSelector(selectState);
   const selectConfig = registry.getComponent('select');
   const buttonConfig = registry.getComponent('button');
-  const selectSchema = selectConfig.options?.schema;
-  const buttonSchema = buttonConfig.options?.schema;
+  if (!selectConfig || !buttonConfig) {
+    return null;
+  }
+  const selectSchema = selectConfig?.options?.schema;
+  const buttonSchema = buttonConfig?.options?.schema;
 
   const [selectProps, setSelectProps] = useState(
     Object.fromEntries(
