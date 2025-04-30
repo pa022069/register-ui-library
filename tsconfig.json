@@ -29,7 +29,8 @@
       "@api/*": ["src/api/*"],
       "@helpers/*": ["src/helpers/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@lang/*": ["src/lang/*"]
+      "@lang/*": ["src/lang/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "vitest.config.ts"],

@@ -3,7 +3,7 @@ import { registry } from '../core/register';
 import SelectConfig from '@components/Select';
 import ButtonConfig from '@components/Button';
 import library from '../../dist/index';
-
+console.log(library);
 Object.values(library).forEach(component => {
   registry.register(component);
 });

@@ -1,9 +1,13 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import Loading from '@components/LoadingBox';
 import { RenderComponent } from '../../core/render';
 // import { selectState } from '@helpers/redux/slices/templateSlice';
 import { registry } from '../../core';
+import { CalendarContainer as Calendar } from '@components/Calendar/component';
+
+const mock = '2026-05-19';
 
 export default function IndexPage() {
   // const { isLoaded } = useSelector(selectState);
@@ -35,8 +39,12 @@ export default function IndexPage() {
     setButtonProps((prev: any) => ({ ...prev, [key]: value }));
   };
 
+  const handleCalendarChange = (date: string) => {
+    console.log(date);
+  };
+
   return (
-    <div className="w-sm mx-auto flex h-screen flex-col items-center justify-center gap-4">
+    <div className="mx-auto flex h-screen flex-col items-center justify-center gap-4">
       {/* {!isLoaded && <Loading />} */}
       {Object.entries(selectSchema.properties).map(([key, value]: any) => (
         <div key={key}>
@@ -80,9 +88,10 @@ export default function IndexPage() {
           ...buttonProps,
         }}
       />
+      <Calendar current={mock} onChange={handleCalendarChange} />
       {/* <div className="flex">
-        <button>Check</button>
-      </div> */}
+          <button>Check</button>
+        </div> */}
     </div>
   );
 }

@@ -26,6 +26,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import dotenv from 'dotenv';
 import { readFileSync } from 'fs';
+import tailwindcss from "@tailwindcss/vite";
 var packageJson = JSON.parse(readFileSync('./package.json', { encoding: 'utf-8' }));
 var globals = __assign({}, ((packageJson === null || packageJson === void 0 ? void 0 : packageJson.dependencies) || {}));
 function resolve(str) {
@@ -38,6 +39,7 @@ export default defineConfig(function (_a) {
     var env = loadEnv(mode, process.cwd(), '');
     return {
         plugins: [
+            tailwindcss(),
             react(),
             typescript({
                 target: 'es5',
@@ -59,6 +61,7 @@ export default defineConfig(function (_a) {
                 '@helpers': resolve('src/helpers'),
                 '@hooks': resolve('src/hooks'),
                 '@lang': resolve('src/lang'),
+                '@utils': resolve('src/utils'),
             },
         },
         externals: {
